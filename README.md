@@ -1,10 +1,12 @@
-#Chapter 1:  
+# Chapter 1:  
 
 Simple project for ReactJS concepts.  
+- Babel  
+- Webpack  
   
   
-#Chapter 2:  
-##dtmoney  
+# Chapter 2:  
+## dtmoney  
 
 SPA with Typescript.  
 - Hooks  
@@ -13,8 +15,8 @@ SPA with Typescript.
 - Sass
 
 
-#Chapter 3  
-##ignews  
+# Chapter 3  
+## ignews  
 
 NextJS project with Typescript.  
 - Hooks  
