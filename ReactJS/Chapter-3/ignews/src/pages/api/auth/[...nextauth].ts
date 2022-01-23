@@ -56,7 +56,7 @@ export default NextAuth({
       try {
         const { email } = user
 
-        fauna.query(
+        await fauna.query(
           q.If(
             q.Not(
               q.Exists(
@@ -81,6 +81,7 @@ export default NextAuth({
 
         return true
       } catch (e) {
+        console.log(JSON.stringify(e, null, 2))
         return false
       }
     }

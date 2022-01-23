@@ -9,7 +9,7 @@ type User = {
     id: string;
   };
   data: {
-    stripe_customer_id?: string;
+    stripe_customer_id: string;
   };
 }
 
@@ -18,9 +18,11 @@ export default async function subscribe(req: NextApiRequest, res: NextApiRespons
     const session = await getSession({ req })
 
     const user = await fauna.query<User>(
-      q.Match(
-        q.Index('user_by_email'),
-        q.Casefold(session.user.email)
+      q.Get(
+        q.Match(
+          q.Index('user_by_email'),
+          q.Casefold(session.user.email)
+        )
       )
     )
 
