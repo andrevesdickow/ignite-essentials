@@ -1,10 +1,15 @@
-import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Text, Tbody, Th, Thead, Tr, Td } from "@chakra-ui/react"
+import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Text, Tbody, Th, Thead, Tr, Td, useBreakpointValue } from "@chakra-ui/react"
 import { RiAddLine, RiPencilLine } from "react-icons/ri"
 import { Header } from "../../components/Header"
 import { Pagination } from "../../components/Pagination"
 import { Sidebar } from "../../components/Sidebar"
 
 export default function ListUsers() {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true
+  })
+
   return (
     <Box>
       <Header />
@@ -37,17 +42,17 @@ export default function ListUsers() {
           >
             <Thead>
               <Tr>
-                <Th px="6" color="gray.300" w="8">
+                <Th px={["4", "4", "6"]} color="gray.300" w="8">
                   <Checkbox colorScheme="pink" />
                 </Th>
                 <Th>Usuário</Th>
-                <Th>Data de cadastro</Th>
+                {isWideVersion && <Th>Data de cadastro</Th>}
                 <Th w="8">Ações</Th>
               </Tr>
             </Thead>
             <Tbody>
               <Tr>
-                <Td px="6">
+                <Td px={["4", "4", "6"]}>
                   <Checkbox colorScheme="pink" />
                 </Td>
                 <Td>
@@ -56,7 +61,7 @@ export default function ListUsers() {
                     <Text fontSize="small" color="gray.300">andreves@dickow.me</Text>
                   </Box>
                 </Td>
-                <Td>11 Fevereiro 2021</Td>
+                {isWideVersion && <Td>11 Fevereiro 2021</Td>}
                 <Td>
                   <Button
                     as="a"
