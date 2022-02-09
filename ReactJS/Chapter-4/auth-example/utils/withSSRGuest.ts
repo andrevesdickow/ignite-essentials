@@ -1,12 +1,19 @@
-export function withSSRGuest() {
-  // const cookies = parseCookies(ctx)
+import { GetServerSideProps, GetServerSidePropsContext, GetServerSidePropsResult } from "next"
+import { parseCookies } from "nookies"
 
-  // if (cookies['authexample.token']) {
-  //   return {
-  //     redirect: {
-  //       destination: '/dashboard',
-  //       permanent: false,
-  //     }
-  //   }
-  // }
+export function withSSRGuest<P>(fn: GetServerSideProps<P>) {
+  return async (ctx: GetServerSidePropsContext): Promise<GetServerSidePropsResult<P>> => {
+    const cookies = parseCookies(ctx)
+
+    if (cookies['authexample.token']) {
+      return {
+        redirect: {
+          destination: '/dashboard',
+          permanent: false,
+        }
+      }
+    }
+
+    return await fn(ctx)
+  }
 }
