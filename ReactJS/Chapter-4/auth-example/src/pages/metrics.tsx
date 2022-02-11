@@ -1,6 +1,6 @@
-import { GetServerSideProps } from "next"
+import { GetServerSideProps } from 'next'
 
-import { withSSRAuth } from "../../utils/withSSRAuth"
+import { withSSRAuth } from '../../utils/withSSRAuth'
 
 export default function Metrics() {
   return (

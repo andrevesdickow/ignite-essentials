@@ -1,9 +1,9 @@
-import { GetServerSideProps, GetServerSidePropsContext, GetServerSidePropsResult } from "next"
-import { destroyCookie, parseCookies } from "nookies"
-import decode from "jwt-decode"
+import { GetServerSideProps, GetServerSidePropsContext, GetServerSidePropsResult } from 'next'
+import { destroyCookie, parseCookies } from 'nookies'
+import decode from 'jwt-decode'
 
-import { AuthTokenError } from "../src/services/errors/AuthTokenError"
-import { validateUserPermissions } from "./validateUserPermissions"
+import { AuthTokenError } from '../src/services/errors/AuthTokenError'
+import { validateUserPermissions } from './validateUserPermissions'
 
 type WithSSRAuthOptions = {
   permissions?: string[];

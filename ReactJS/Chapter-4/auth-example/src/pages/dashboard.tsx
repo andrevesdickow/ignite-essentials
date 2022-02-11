@@ -1,10 +1,10 @@
-import { useEffect } from "react"
-import { GetServerSideProps } from "next"
+import { useEffect } from 'react'
+import { GetServerSideProps } from 'next'
 
-import { withSSRAuth } from "../../utils/withSSRAuth"
-import { useAuth } from "../contexts/AuthContext"
-import { api } from "../services/apiClient"
-import { Can } from "../components/Can"
+import { withSSRAuth } from '../../utils/withSSRAuth'
+import { useAuth } from '../contexts/AuthContext'
+import { api } from '../services/apiClient'
+import { Can } from '../components/Can'
 
 export default function Dashboard() {
   const { user, signOut } = useAuth()
